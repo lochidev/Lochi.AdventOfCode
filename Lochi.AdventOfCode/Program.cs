@@ -1,7 +1,8 @@
-﻿using Lochi.AdventOfCode.Helpers;
-using Lochi.AdventOfCode.Y2020;
+﻿using BenchmarkDotNet.Running;
+using Lochi.AdventOfCode.Benchmark;
+using Lochi.AdventOfCode.Helpers;
 using System;
-using System.IO;
+using static Lochi.AdventOfCode.Common;
 
 namespace Lochi.AdventOfCode
 {
@@ -9,38 +10,23 @@ namespace Lochi.AdventOfCode
     {
         private static void Main(string[] args)
         {
-            ISolver solver = GetSolver(2020, 01);
+            AppState.Year = 2020;
+            AppState.Day = 01;
+            ISolver solver = GetSolver(AppState.Year, AppState.Day);
             if (solver != null)
             {
-                solver.Solve(GetInput());
+                string input = GetInput();
+                Solution solution = solver.Solve(input);
+                Console.WriteLine($"Part 1: {solution.Part1}\nPart 2: {solution.Part2}\nPress a key to run benchmark");
+                Console.ReadLine();
+                BenchmarkRunner.Run<Benchy>();
             }
-            Console.WriteLine("Solver not found");
+            else
+            {
+                Console.WriteLine("Solver not found");
+            }
             Console.ReadLine();
         }
-        private static ISolver GetSolver(int year, int day)
-        {
-            switch (year)
-            {
-                case 2020:
-                    switch (day)
-                    {
-                        case 01:
-                            return new Day01();
-                    }
-                    break;
-                default:
-                    break;
-            }
-            return null;
-        }
-        private static ReadOnlySpan<char> GetInput()
-        {
-            string text = File.ReadAllText("input.txt");
-            if (text == null)
-            {
-                throw new Exception("Input not found");
-            }
-            return text;
-        }
+
     }
 }
