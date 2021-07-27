@@ -13,8 +13,10 @@ namespace Lochi.AdventOfCode.Y2020
         {
             //5-13 q: mzqtnknqzqgqhqdkwmlf 19-20 n: nnnnsnnnnnnnnnnnnnnn
             int valid = 0;
+            int valid2 = 0;
             foreach (ReadOnlySpan<char> line in input.SplitLines())
             {
+                ReadOnlySpan<char> subStr = string.Empty;
                 var index = line.IndexOf('-');
                 int min = line[0] - '0';
                 if (index == 2)
@@ -29,6 +31,7 @@ namespace Lochi.AdventOfCode.Y2020
                     if (current == ' ')
                     {
                         key = line[i + 1];
+                        subStr = line[(i + 4)..];
                         break;
                     }
                     else if (current != '-')
@@ -49,8 +52,12 @@ namespace Lochi.AdventOfCode.Y2020
                 {
                     valid++;
                 }
+                if (!subStr.IsEmpty && max >= subStr.Length ? subStr[min - 1] == key : (subStr[max - 1] == key || subStr[min - 1] == key))
+                {
+                    valid2++;
+                }
             }
-            return new Solution(valid, 0);
+            return new Solution(valid, valid2);
         }
     }
 }
