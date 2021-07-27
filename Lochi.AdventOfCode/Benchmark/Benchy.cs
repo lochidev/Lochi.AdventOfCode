@@ -5,13 +5,16 @@ namespace Lochi.AdventOfCode.Benchmark
 {
     public class Benchy
     {
-        private readonly ISolver _solver = GetSolver(AppState.Year, AppState.Day);
-        private readonly string _input = GetInput();
-
+        private string Input;
+        [GlobalSetup]
+        public void GlobalSetup()
+        {
+            Input = GetInput();
+        }
         [Benchmark]
         public Solution Solve()
         {
-            return _solver.Solve(_input);
+            return GetSolver(AppState.Year, AppState.Day).Solve(Input);
         }
     }
 }

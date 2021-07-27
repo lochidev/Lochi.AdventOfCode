@@ -10,8 +10,6 @@ namespace Lochi.AdventOfCode
     {
         private static void Main(string[] args)
         {
-            AppState.Year = 2020;
-            AppState.Day = 01;
             ISolver solver = GetSolver(AppState.Year, AppState.Day);
             if (solver != null)
             {
