@@ -16,6 +16,8 @@ namespace Lochi.AdventOfCode
                     {
                         case 01:
                             return new Day01();
+                        case 02:
+                            return new Day02();
                     }
                     break;
                 default:
