@@ -52,9 +52,19 @@ namespace Lochi.AdventOfCode.Y2020
                 {
                     valid++;
                 }
-                if (!subStr.IsEmpty && max >= subStr.Length ? subStr[min - 1] == key : (subStr[max - 1] == key || subStr[min - 1] == key))
+                if (!subStr.IsEmpty)
                 {
-                    valid2++;
+                    bool minFlag = subStr[min - 1] == key;
+                    if (max - 1 >= subStr.Length && minFlag)
+                        valid2++;
+                    else
+                    {
+                        bool maxFlag = subStr[max - 1] == key;
+                        if(maxFlag != minFlag && (maxFlag || minFlag))
+                        {
+                            valid2++;
+                        }
+                    }
                 }
             }
             return new Solution(valid, valid2);
