@@ -1,9 +1,5 @@
 ﻿using Lochi.AdventOfCode.Helpers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lochi.AdventOfCode.Y2020
 {
@@ -17,7 +13,7 @@ namespace Lochi.AdventOfCode.Y2020
             foreach (ReadOnlySpan<char> line in input.SplitLines())
             {
                 ReadOnlySpan<char> subStr = string.Empty;
-                var index = line.IndexOf('-');
+                int index = line.IndexOf('-');
                 int min = line[0] - '0';
                 if (index == 2)
                 {
@@ -56,11 +52,13 @@ namespace Lochi.AdventOfCode.Y2020
                 {
                     bool minFlag = subStr[min - 1] == key;
                     if (max - 1 >= subStr.Length && minFlag)
+                    {
                         valid2++;
+                    }
                     else
                     {
                         bool maxFlag = subStr[max - 1] == key;
-                        if(maxFlag != minFlag && (maxFlag || minFlag))
+                        if (maxFlag != minFlag && (maxFlag || minFlag))
                         {
                             valid2++;
                         }

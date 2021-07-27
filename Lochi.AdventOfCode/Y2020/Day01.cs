@@ -1,6 +1,5 @@
 ﻿using Lochi.AdventOfCode.Helpers;
 using System;
-using System.Runtime.CompilerServices;
 
 namespace Lochi.AdventOfCode.Y2020
 {
@@ -32,7 +31,9 @@ namespace Lochi.AdventOfCode.Y2020
                 {
                     part1 = tmp * a;
                     if (part2 > 0)
+                    {
                         return new Solution(part1, part2);
+                    }
                 }
 
                 for (int j = i + 1; j < length; j++)
@@ -45,7 +46,10 @@ namespace Lochi.AdventOfCode.Y2020
                         {
                             part2 = c * a * b;
                             if (part1 > 0)
+                            {
                                 return new Solution(part1, part2);
+                            }
+
                             break;
                         }
 

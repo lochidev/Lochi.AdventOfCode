@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lochi.AdventOfCode.Helpers
 {
@@ -18,7 +14,11 @@ namespace Lochi.AdventOfCode.Helpers
             _str = str;
             Current = default;
         }
-        public SpanSplitEnumerator<T> GetEnumerator() => this;
+        public SpanSplitEnumerator<T> GetEnumerator()
+        {
+            return this;
+        }
+
         public bool MoveNext()
         {
             if (_str.IsEmpty)
@@ -27,7 +27,7 @@ namespace Lochi.AdventOfCode.Helpers
             }
             ReadOnlySpan<T> span = _str;
             int index = _str.IndexOf(_seperator);
-            if(index == -1)
+            if (index == -1)
             {
                 _str = ReadOnlySpan<T>.Empty;
                 Current = span;
