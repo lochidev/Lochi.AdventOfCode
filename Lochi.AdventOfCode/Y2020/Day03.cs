@@ -13,9 +13,9 @@ namespace Lochi.AdventOfCode.Y2020
             int r7d1 = 0;
             int r1d1Position = 0;
             int r1d2Position = 1;
+            int r3d1Position = 0;
             int r5d1Position = 0;
             int r7d1Position = 0;
-            int linePosition = 0;
             bool skipped = false;
             bool start = true;
             foreach (ReadOnlySpan<char> line in input.SplitLines())
@@ -28,10 +28,9 @@ namespace Lochi.AdventOfCode.Y2020
                 //.....#.........#....#....#....#
                 //....##..........#.#.##.........
                 int maxPosition = (line.Length - 1);
-                //when 1 right 1 down
                 if (!start)
                 {
-                    //1 2 3 4 5 6
+                    //when 1 right 1 down
                     if (r1d1Position > maxPosition)
                     {
                         r1d1Position -= maxPosition + 1;
@@ -72,16 +71,16 @@ namespace Lochi.AdventOfCode.Y2020
                     {
                         r7d1++;
                     }
-                    if (linePosition > maxPosition)
+                    if (r3d1Position > maxPosition)
                     {
-                        linePosition -= maxPosition + 1;
+                        r3d1Position -= maxPosition + 1;
                     }
-                    if (line[linePosition] == '#')
+                    if (line[r3d1Position] == '#')
                     {
                         part1++;
                     }
                 }
-                linePosition += 3;
+                r3d1Position += 3;
                 r1d1Position++;
                 r5d1Position += 5;
                 r7d1Position += 7;
