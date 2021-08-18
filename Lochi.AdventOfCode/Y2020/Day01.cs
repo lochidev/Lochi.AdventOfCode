@@ -1,5 +1,4 @@
 ﻿using Lochi.AdventOfCode.Helpers;
-using System;
 
 namespace Lochi.AdventOfCode.Y2020
 {

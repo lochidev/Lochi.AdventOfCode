@@ -1,7 +1,6 @@
 ﻿using BenchmarkDotNet.Running;
 using Lochi.AdventOfCode.Benchmark;
 using Lochi.AdventOfCode.Helpers;
-using System;
 using static Lochi.AdventOfCode.Common;
 
 namespace Lochi.AdventOfCode

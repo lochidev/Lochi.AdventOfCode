@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Lochi.AdventOfCode.Helpers
+﻿namespace Lochi.AdventOfCode.Helpers
 {
     public interface ISolver
     {
