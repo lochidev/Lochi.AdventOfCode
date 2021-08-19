@@ -66,5 +66,10 @@ namespace Lochi.AdventOfCode.Y2020
             }
             return new Solution(valid, valid2);
         }
+
+        public Solution Solve(string input)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

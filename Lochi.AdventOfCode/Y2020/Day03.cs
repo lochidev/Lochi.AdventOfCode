@@ -88,5 +88,10 @@ namespace Lochi.AdventOfCode.Y2020
             }
             return new Solution(part1.ToString(), (r1d1 * r1d2 * r5d1 * r7d1 * part1).ToString());
         }
+
+        public Solution Solve(string input)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

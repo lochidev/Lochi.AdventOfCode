@@ -9,12 +9,12 @@ namespace Lochi.AdventOfCode.Benchmark
         [GlobalSetup]
         public void GlobalSetup()
         {
-            Input = GetInput();
+            Input = GetInput(AppState.Year, AppState.Day);
         }
         [Benchmark]
         public Solution Solve()
         {
-            return GetSolver(AppState.Year, AppState.Day).Solve(Input);
+            return GetSolver(AppState.Year, AppState.Day).Solve((ReadOnlySpan<char>)Input);
         }
     }
 }

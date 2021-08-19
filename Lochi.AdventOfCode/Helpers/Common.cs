@@ -18,6 +18,8 @@ namespace Lochi.AdventOfCode
                             return new Day02();
                         case 03:
                             return new Day03();
+                        case 04:
+                            return new Day04();
                     }
                     break;
                 default:
@@ -25,14 +27,10 @@ namespace Lochi.AdventOfCode
             }
             return null;
         }
-        public static string GetInput()
+        public static string GetInput(int year, int day)
         {
-            string text = File.ReadAllText("input.txt");
-            if (text == null)
-            {
-                throw new Exception("Input not found");
-            }
-            return text;
+            string filename = $"Inputs\\{year}\\day{day}.txt";
+            return File.ReadAllText(filename);
         }
     }
 }
