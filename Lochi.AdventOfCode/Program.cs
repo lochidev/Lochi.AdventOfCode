@@ -13,7 +13,7 @@ namespace Lochi.AdventOfCode
             if (solver != null)
             {
                 string input = GetInput(AppState.Year, AppState.Day);
-                Solution solution = new();
+                Solution solution;
                 if (AppState.Performant)
                 {
                     solution = solver.Solve((ReadOnlySpan<char>)input);
