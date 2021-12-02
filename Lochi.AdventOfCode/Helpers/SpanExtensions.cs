@@ -1,10 +1,9 @@
-﻿namespace Lochi.AdventOfCode.Helpers
+﻿namespace Lochi.AdventOfCode.Helpers;
+
+public static class SpanExtensions
 {
-    public static class SpanExtensions
+    public static SpanSplitEnumerator<char> SplitLines(this ReadOnlySpan<char> str)
     {
-        public static SpanSplitEnumerator<char> SplitLines(this ReadOnlySpan<char> str)
-        {
-            return new(str, '\n');
-        }
+        return new SpanSplitEnumerator<char>(str, '\n');
     }
 }

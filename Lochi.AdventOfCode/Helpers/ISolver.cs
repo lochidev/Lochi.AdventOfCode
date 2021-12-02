@@ -1,8 +1,7 @@
-﻿namespace Lochi.AdventOfCode.Helpers
+﻿namespace Lochi.AdventOfCode.Helpers;
+
+public interface ISolver
 {
-    public interface ISolver
-    {
-        Solution Solve(ReadOnlySpan<char> input);
-        Solution Solve(string input);
-    }
+    Solution Solve(ReadOnlySpan<char> input);
+    Solution Solve(string input);
 }
