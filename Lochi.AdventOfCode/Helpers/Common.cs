@@ -28,8 +28,8 @@ public static class Common
                 {
                     case 01:
                         return new Y2021.Day01();
-                    // case 02:
-                    //     return new Y2021.Day02();
+                    case 02:
+                        return new Y2021.Day02();
                     // case 03:
                     //     return new Y2021.Day03();
                     // case 04:
