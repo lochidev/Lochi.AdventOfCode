@@ -2,7 +2,7 @@
 
 namespace Lochi.AdventOfCode.Y2020;
 
-public class Day03 : ISolver
+public class Day3 : ISolver
 {
     public Solution Solve(ReadOnlySpan<char> input)
     {

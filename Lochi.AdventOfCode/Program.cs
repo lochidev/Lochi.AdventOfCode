@@ -1,7 +1,7 @@
 ﻿using BenchmarkDotNet.Running;
 using Lochi.AdventOfCode.Benchmark;
 using Lochi.AdventOfCode.Helpers;
-using static Lochi.AdventOfCode.Common;
+using static Lochi.AdventOfCode.Helpers.Common;
 
 var solver = GetSolver(AppState.Year, AppState.Day);
 if (solver != null)

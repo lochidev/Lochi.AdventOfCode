@@ -1,45 +1,16 @@
-﻿using Lochi.AdventOfCode.Helpers;
-using Lochi.AdventOfCode.Y2020;
+﻿using System.Reflection;
 
-namespace Lochi.AdventOfCode;
+namespace Lochi.AdventOfCode.Helpers;
 
 public static class Common
 {
     public static ISolver GetSolver(int year, int day)
     {
-        switch (year)
-        {
-            case 2020:
-                switch (day)
-                {
-                    case 01:
-                        return new Day01();
-                    case 02:
-                        return new Day02();
-                    case 03:
-                        return new Day03();
-                    case 04:
-                        return new Day04();
-                }
-
-                break;
-            case 2021:
-                switch (day)
-                {
-                    case 01:
-                        return new Y2021.Day01();
-                    case 02:
-                        return new Y2021.Day02();
-                    // case 03:
-                    //     return new Y2021.Day03();
-                    // case 04:
-                    //     return new Y2021.Day04();
-                }
-
-                break;
-        }
-
-        return null;
+        var name = $"Lochi.AdventOfCode.Y{year}.Day{day}";
+        var q = from t in Assembly.GetExecutingAssembly().GetTypes()
+            where t.IsClass && t.FullName == name
+            select t;
+        return (ISolver) Activator.CreateInstance(q.FirstOrDefault());
     }
 
     public static string GetInput(int year, int day)

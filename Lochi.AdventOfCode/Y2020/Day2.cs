@@ -2,7 +2,7 @@
 
 namespace Lochi.AdventOfCode.Y2020;
 
-public class Day02 : ISolver
+public class Day2 : ISolver
 {
     public Solution Solve(ReadOnlySpan<char> input)
     {
@@ -27,10 +27,7 @@ public class Day02 : ISolver
                     break;
                 }
 
-                if (current != '-')
-                {
-                    max = max * 10 + (current - '0');
-                }
+                if (current != '-') max = max * 10 + (current - '0');
             }
 
             var count = -1;
