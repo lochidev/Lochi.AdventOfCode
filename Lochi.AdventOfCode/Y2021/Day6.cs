@@ -1,9 +1,4 @@
 ﻿using Lochi.AdventOfCode.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lochi.AdventOfCode.Y2021;
 
@@ -18,10 +13,10 @@ public class Day6 : ISolver
     {
         var inputArr = input.Split(',').Select(s => Convert.ToByte(s));
         var lanterFish = inputArr.ToList();
-        for (int i = 0; i < 80; i++)
+        for (var i = 0; i < 80; i++)
         {
             var count = lanterFish.Count;
-            for (int j = 0; j < count; j++)
+            for (var j = 0; j < count; j++)
             {
                 var fish = lanterFish[j];
                 if (fish == 0)
@@ -35,26 +30,18 @@ public class Day6 : ISolver
                 }
             }
         }
+
         //part2
         var fishDic = new Dictionary<int, long>();
-        for (int i = -1; i < 9; i++)
+        for (var i = -1; i < 9; i++) fishDic[i] = 0;
+        foreach (var fish in inputArr) fishDic[fish]++;
+        for (var i = 0; i < 256; i++)
         {
-            fishDic[i] = 0;
-        }
-        foreach (var fish in inputArr)
-        {
-            fishDic[fish]++;
-        }
-        for (int i = 0; i < 256; i++)
-        {
-            for (byte k = 0; k < 9; k++)
-            {
-                fishDic[k - 1] = fishDic[k];
-            }
+            for (byte k = 0; k < 9; k++) fishDic[k - 1] = fishDic[k];
             fishDic[8] = fishDic[-1];
             fishDic[6] += fishDic[-1];
         }
+
         return new Solution(lanterFish.Count, fishDic.Skip(1).Sum(x => x.Value));
     }
 }
-

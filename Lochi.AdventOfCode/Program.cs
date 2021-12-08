@@ -10,8 +10,7 @@ if (solver != null)
     Solution solution;
     if (AppState.Performant)
         solution = solver.Solve((ReadOnlySpan<char>) input);
-    else 
-        solution = solver.Solve(input);
+    solution = solver.Solve(input);
 
     Console.WriteLine($"Part 1: {solution.Part1}\nPart 2: {solution.Part2}\nPress a key to run benchmark");
     Console.ReadLine();

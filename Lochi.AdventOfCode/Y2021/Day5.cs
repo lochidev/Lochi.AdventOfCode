@@ -79,6 +79,7 @@ public class Day5 : ISolver
                     x1--;
             }
         }
+
         var part2 = map.Count(x => x.Value >= 2);
         return new Solution(part1, part2);
     }
